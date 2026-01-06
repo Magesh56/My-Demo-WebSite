@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="510.352" tests="12" skipped="0" failures="0" errors="0">
+<testcase classname="Shopping Cart" name="Add product to cart" time="56.634">
+<system-out><![CDATA[
+Given User is on the product details page...................................passed
+When User clicks Add to Cart................................................passed
+Then Product should be added to the cart....................................passed
+And Cart count should increase..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Remove product from cart" time="67.279">
+<system-out><![CDATA[
+Given User has items in the cart............................................passed
+When User removes a product.................................................passed
+Then Product should no longer appear in the cart............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Successful login with valid credentials" time="23.423">
+<system-out><![CDATA[
+Given User is on the login page.............................................passed
+When User enters valid username and password................................passed
+And clicks on the login button..............................................passed
+Then User should be redirected to the homepage..............................passed
+And a welcome message should be displayed...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login with invalid credentials" time="28.415">
+<system-out><![CDATA[
+Given User is on the login page.............................................passed
+When User enters invalid username and password..............................passed
+And clicks on the login button..............................................passed
+Then An error message should be displayed...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login with empty fields" time="14.139">
+<system-out><![CDATA[
+Given User is on the login page.............................................passed
+When User clicks on the login button without entering credentials...........passed
+Then Validation messages should be displayed for required fields............passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout and Payment" name="Successful checkout with valid details" time="74.487">
+<system-out><![CDATA[
+Given User has into items in the cart.......................................passed
+When User proceeds to checkout..............................................passed
+And enters valid shipping address and payment details.......................passed
+Then Order confirmation page should be displayed............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout and Payment" name="Checkout with invalid card details" time="71.51">
+<system-out><![CDATA[
+Given User has into items in the cart.......................................passed
+When User enters invalid card details.......................................passed
+Then An error message should be displayed...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search and Browsing" name="Search for a product by name" time="17.397">
+<system-out><![CDATA[
+Given User is on the homepage...............................................passed
+When User searches for Laptop...............................................passed
+Then Relevant products should be displayed..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search and Browsing" name="Filter products by category" time="18.973">
+<system-out><![CDATA[
+Given User is on the product listing page...................................passed
+When User applies filter Electronics........................................passed
+Then Only electronic products should be displayed...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search and Browsing" name="Sort products by price" time="54">
+<system-out><![CDATA[
+Given User is on the product listing page...................................passed
+When User sorts products by Price Low to High...............................passed
+Then Products should be displayed in ascending order of price...............passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Successful registration with valid details" time="23.415">
+<system-out><![CDATA[
+Given User is on the registration page......................................passed
+When User enters valid personal details.....................................passed
+And submits the registration form...........................................passed
+Then User should be registered successfully.................................passed
+And redirected to the homepage..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Registration with existing email" time="59.678">
+<system-out><![CDATA[
+Given User is on the registration page......................................passed
+When User enters an already registered email................................passed
+And submits the registration form...........................................passed
+Then An error message should be displayed...................................passed
+]]></system-out>
+</testcase>
+</testsuite>
