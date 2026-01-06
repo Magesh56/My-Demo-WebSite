@@ -14,6 +14,7 @@ import java.util.Properties;
 import org.apache.commons.io.FileUtils;
 import org.base.BaseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -64,9 +65,36 @@ public class Utils extends BaseClass {
 
      public static void click(WebElement element) {
     	 WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
- 		 wait.until(ExpectedConditions.elementToBeClickable(element)); 
+ 		 wait.until(ExpectedConditions.elementToBeClickable(element));
  		element.click();
      }
+     
+     public static void safeClick(WebElement element ,String webElement) {
+
+         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+         try {
+            
+             wait.until(ExpectedConditions.elementToBeClickable(element));
+             element.click();
+
+         } catch (ElementClickInterceptedException e) {
+
+             try {
+           
+                 wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                         By.id(webElement)));
+
+                 wait.until(ExpectedConditions.elementToBeClickable(element));
+                 element.click();
+
+             } catch (Exception ex) {
+                 throw new RuntimeException(
+                         "Unable to click element due to overlay or timeout", ex);
+             }
+         }
+     }
+     
      
      public static void sendKeys(WebElement element, String value) {
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
